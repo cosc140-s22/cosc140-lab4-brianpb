@@ -15,6 +15,7 @@
         <th>Description
         <th>Ages
         <th>Price
+        <th>Average Review
     </thead>
     <tbody>
 {% for p in products %}
@@ -23,6 +24,7 @@
         <td>{{ p.description|truncatewords:5 }}
         <td class="right">{{ p.age_range }}
         <td class="right">{{ p.price|floatformat:2 }}
+        <td class="right">{{p.avg_rating|floatformat:2}}
 {% endfor %}
     </tbody>
 </table>
