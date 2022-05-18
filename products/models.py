@@ -12,7 +12,15 @@ class Product(models.Model):
       stars = self.review_set.aggregate(Avg('stars'))
       print(stars)
       return stars['stars__avg']
-     
+
+    def age_range(self):
+      if self.maximum_age_appropriate == -1:
+          return f"Ages {self.minimum_age_appropriate} and up"
+      elif self.maximum_age_appropriate == self.minimum_age_appropriate:
+          return f"Age {self.minimum_age_appropriate}"
+      else:
+          return f"Ages {self.minimum_age_appropriate} to {self.maximum_age_appropriate}"
+
       
     def __str__(self):
         return f"Product {self.name}, price {self.price:.02f}"
@@ -27,11 +35,3 @@ class Review(models.Model):
     return f"Review for {self.product}, {self.stars} stars"
 
   
-  def age_range(self):
-      if self.maximum_age_appropriate == -1:
-          return f"Ages {self.minimum_age_appropriate} and up"
-      elif self.maximum_age_appropriate == self.minimum_age_appropriate:
-          return f"Age {self.minimum_age_appropriate}"
-      else:
-          return f"Ages {self.minimum_age_appropriate} to {self.maximum_age_appropriate}"
-

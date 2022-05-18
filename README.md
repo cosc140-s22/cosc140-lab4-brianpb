@@ -10,5 +10,7 @@ I thought it was straight forward and challenging as well. I don't think any par
 
 ## Feedback
 
-Once you commit and submit your work to Github, I'll update this section with feedback.
+S.
+
+Good work.  The `age_range` method was plopped into the wrong class, but once moved over to `Product` (instead of `Review` it was fine).
 
